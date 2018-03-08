@@ -14,7 +14,6 @@ syntax on
 set cursorline
 hi clear CursorLine
 hi CursorLine gui=underline
-highlight CursorLine ctermbg=grey guibg=black
 set scrolloff=7
 set backspace=indent,eol,start
 set wrap " text wrapping

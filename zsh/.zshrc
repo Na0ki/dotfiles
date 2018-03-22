@@ -70,7 +70,10 @@ setopt hist_reduce_blanks # rm redundant blanks from history
 setopt extended_history # add executed date
 setopt hist_no_store # don't record history command
 
+# completion
 setopt auto_menu
+setopt list_types
+setopt list_packed
 
 # file glob
 setopt extended_glob
@@ -104,7 +107,7 @@ if [[ -x `which colordiff` ]]; then
     alias diff='colordiff -u'
 fi
 
-# auto ls after cd
+# cd後に自動ls
 function chpwd() {
 	ls
 }

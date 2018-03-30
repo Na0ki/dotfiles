@@ -127,9 +127,15 @@ function command_not_found_handler() {
 
 ########################################
 function peco-history-selection() {
-        BUFFER=`history -n 1 | tail -r  | awk '!a[$0]++' | peco`
-        CURSOR=$#BUFFER
-        zle reset-prompt
+  local tac
+  if which tac > /dev/null; then
+    tac='tac'
+  else
+    tac='tail -r'
+  fi
+  BUFFER=`history -n 1 | eval $tac  | awk '!a[$0]++' | peco`
+  CURSOR=$#BUFFER
+  zle reset-prompt
 }
 
 zle -N peco-history-selection

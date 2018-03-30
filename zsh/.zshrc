@@ -58,7 +58,7 @@ setopt print_eight_bit # show japanese filename
 setopt no_beep # don't use beep
 setopt no_flow_control # disable flow control (ctrl+s,ctrl+q)
 setopt interactive_comments # use comment on commandline
-setopt auto_pushd
+setopt auto_pushd # push cd history(`cd -[tab]` to show history)
 setopt pushd_ignore_dups
 
 # history

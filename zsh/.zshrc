@@ -9,6 +9,7 @@ export LS_COLORS='di=36;40:ln=35;40:so=32;40:pi=33;40:ex=31;40:bd=34;46:cd=34;43
 
 REPORTTIME=3
 
+autoload -Uz add-zsh-hook
 autoload -Uz colors
 colors
 
@@ -96,8 +97,15 @@ alias vi='vim '
 alias unixtime='date +%s'
 alias grep='grep --color=auto'
 
-alias g='cd ${HOME}/ghq/$(ghq list | peco || cd -)'
-alias gh='hub browse $(ghq list | peco | cut -d "/" -f 2,3)'
+#alias g='cd ${HOME}/ghq/$(ghq list | peco)'
+function g() {
+  add-zsh-hook -d chpwd _chpwd
+  cd $(ghq root)/$(ghq list | peco)
+  if [ $(ghq root) = $(pwd) ]; then
+    cd - >& /dev/null
+  fi
+  add-zsh-hook chpwd _chpwd
+}
 
 # alias colorlist=`echo 'for c in {016..255}; do echo -n "\e[38;5;${c}m $c" ; [ $(($((c-16))%6)) -eq 5 ] && echo;done;echo'`
 
@@ -108,7 +116,8 @@ if [[ -x `which colordiff` ]]; then
 fi
 
 # cd後に自動ls
-function chpwd() {
+add-zsh-hook chpwd _chpwd
+function _chpwd() {
 	ls
 }
 

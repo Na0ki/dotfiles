@@ -1,0 +1,15 @@
+#!/bin/zsh
+
+alias la='ls -a'
+alias ll='ls -l'
+alias ks='ls'
+alias sl='ls'
+alias less='less -R '
+alias rm='rm -i'
+alias cp='cp -i'
+alias mv='mv -i'
+alias mkdir='mkdir -p'
+alias sudo='sudo '
+alias vi='vim '
+alias unixtime='date +%s'
+alias grep='grep --color=auto'

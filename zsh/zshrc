@@ -1,0 +1,5 @@
+#!/bin/zsh
+
+source $HOME/.zsh.d/init.zsh
+
+[ -f ~/.zshrc.local ] && source $HOME/.zshrc.local

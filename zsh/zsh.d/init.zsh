@@ -30,6 +30,6 @@ require env/init
 
 if [[ $OSTYPE =~ "darwin*" ]]; then
   require mac/init
-elif [ $OSTYPE = "linux*"]; then
+elif [[ $OSTYPE = "linux*" ]]; then
   require linux/init
 fi
